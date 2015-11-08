@@ -1,0 +1,43 @@
+{
+  "name": "nmearouter",
+  "version": "0.0.0",
+  "description": "NMEA routing ",
+  "homepage": "",
+  "author": {
+    "name": "Niels Schelbach",
+    "email": "info@schelbach.com",
+    "url": "http://www.schelbach.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "nmea"
+  ],
+  "repository": "captainnilo/nmearouter",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^0.4.5",
+    "gulp-babel": "^5.1.0",
+    "del": "^2.0.2",
+    "babel-core": "^5.5.0",
+    "isparta": "^3.0.3"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cobu-eventbus": "^0.13.0",
+    "libnmea": "^1.0.0",
+    "mongoose": "^4.2.4",
+    "winston": "^2.1.0"
+  }
+}
