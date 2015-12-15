@@ -1,23 +1,24 @@
 #!/usr/bin/env node
 
-var
-  event = require('./lib/bus/event'),
-  sensorinput = require('./lib/input/sensorinput'),
-  clientoutput = require('./lib/output/clientoutput'),
-  nmea = require('./lib/processing/nmea')
-  ;
+require('./lib/bus/event');
+require('./lib/model/export');
 
+
+const sensorinput = require('./lib/input/sensorinputdgram');
+const clientoutput = require('./lib/output/clientoutput');
+const nmea = require('./lib/processing/nmea');
+const logger = require('./lib/util/logging')('server');
+
+logger.info('starting up server');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://docker:32768/blackbox');
 
 // first define input
-var input = new sensorinput.Socket('shipmodul.fritz.box', 10110);
+sensorinput.socket(10110);
 
 // at last the output will been sending to client
-var output = new clientoutput.Socket(5000);
+clientoutput.socket(5000);
 
 
-var nmea = new nmea.NMEAIncomingProcessor();
-
-
+nmea.nmeaIncomingProcessor();
